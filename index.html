@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker & DCBox Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .tracker {
+            color: green;
+            font-weight: bold;
+        }
+        .dcbox {
+            color: blue;
+            font-weight: bold;
+        }
+        .string {
+            color: black;
+        }
+        input, button {
+            padding: 8px;
+            margin: 10px;
+        }
+        input {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trackers & DC Box Visualizer</h1>
+    <div class="search-bar" style="text-align: center;">
+        <input type="text" id="searchInput" placeholder="Search Trackers or DC Boxes">
+        <button onclick="searchRows()">Search</button>
+    </div>
+    <div class="container" id="rowContainer">
+        <!-- Rows will be dynamically added -->
+    </div>
+
+    <script>
+        // Sample data: Each row has a tracker (green), DC box (blue), and string number (black)
+        const data = [
+            { tracker: 'T1-111', dcbox: 'DCBOX-1.1.1', string: 'S-1.1.1.1' },
+            { tracker: 'T1-112', dcbox: 'DCBOX-1.1.2', string: 'S-1.1.1.2' },
+            { tracker: 'T1-113', dcbox: 'DCBOX-1.1.3', string: 'S-1.1.1.3' },
+            { tracker: 'T2-211', dcbox: 'DCBOX-2.1.1', string: 'S-2.1.1.1' },
+            { tracker: 'T2-212', dcbox: 'DCBOX-2.1.2', string: 'S-2.1.1.2' },
+            { tracker: 'T2-213', dcbox: 'DCBOX-2.1.3', string: 'S-2.1.1.3' },
+            // Add more rows here
+        ];
+
+        const container = document.getElementById('rowContainer');
+
+        // Function to display rows
+        function displayRows(data) {
+            container.innerHTML = ''; // Clear previous content
+            data.forEach(row => {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'row';
+                rowDiv.innerHTML = `
+                    <span class="tracker">${row.tracker}</span>
+                    <span class="dcbox">${row.dcbox}</span>
+                    <span class="string">${row.string}</span>
+                `;
+                container.appendChild(rowDiv);
+            });
+        }
+
+        // Function to search rows
+        function searchRows() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const filteredData = data.filter(row => 
+                row.tracker.toLowerCase().includes(input) ||
+                row.dcbox.toLowerCase().includes(input)
+            );
+            displayRows(filteredData);
+        }
+
+        // Initial display
+        displayRows(data);
+    </script>
+</body>
+</html>
