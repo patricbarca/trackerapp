@@ -3,103 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tracker & DCBox Management</title>
+    <title>Trackers Grid Layout</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
+            background-color: #f7f7f7;
         }
+
         h1 {
             text-align: center;
+            margin: 20px 0;
             color: #333;
         }
-        .container {
-            width: 90%;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr); /* 10 columns layout */
+            gap: 5px;
+            width: 95%;
             margin: 20px auto;
-            overflow-x: auto;
         }
-        .row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-        }
+
         .tracker {
-            color: green;
+            padding: 10px;
+            text-align: center;
             font-weight: bold;
+            color: green;
+            background-color: #eaffea;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
+
+        .tracker:hover {
+            background-color: #d4f5d4;
+        }
+
         .dcbox {
+            text-align: center;
             color: blue;
             font-weight: bold;
         }
+
         .string {
+            text-align: center;
             color: black;
         }
-        input, button {
-            padding: 8px;
-            margin: 10px;
+
+        /* Details Popup */
+        .details-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 1000;
         }
-        input {
-            width: 200px;
+
+        .details-popup h2 {
+            color: green;
+            margin-top: 0;
+        }
+
+        .details-popup p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .close-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .close-btn:hover {
+            background-color: darkred;
         }
     </style>
 </head>
 <body>
-    <h1>Trackers & DC Box Visualizer</h1>
-    <div class="search-bar" style="text-align: center;">
-        <input type="text" id="searchInput" placeholder="Search Trackers or DC Boxes">
-        <button onclick="searchRows()">Search</button>
+    <h1>Trackers & DC Boxes Grid</h1>
+
+    <div class="grid-container" id="gridContainer">
+        <!-- Rows will be dynamically populated here -->
     </div>
-    <div class="container" id="rowContainer">
-        <!-- Rows will be dynamically added -->
+
+    <!-- Details Popup -->
+    <div id="detailsPopup" class="details-popup">
+        <h2 id="popupTitle">Tracker Details</h2>
+        <p id="popupDCBox">DC Box: N/A</p>
+        <p id="popupString">String: N/A</p>
+        <button class="close-btn" onclick="closeDetails()">Close</button>
     </div>
 
     <script>
-        // Sample data: Each row has a tracker (green), DC box (blue), and string number (black)
-        const data = [
+        // Sample data for trackers
+        const trackerData = [
             { tracker: 'T1-111', dcbox: 'DCBOX-1.1.1', string: 'S-1.1.1.1' },
             { tracker: 'T1-112', dcbox: 'DCBOX-1.1.2', string: 'S-1.1.1.2' },
             { tracker: 'T1-113', dcbox: 'DCBOX-1.1.3', string: 'S-1.1.1.3' },
             { tracker: 'T2-211', dcbox: 'DCBOX-2.1.1', string: 'S-2.1.1.1' },
             { tracker: 'T2-212', dcbox: 'DCBOX-2.1.2', string: 'S-2.1.1.2' },
             { tracker: 'T2-213', dcbox: 'DCBOX-2.1.3', string: 'S-2.1.1.3' },
-            // Add more rows here
+            // Repeat for testing
         ];
 
-        const container = document.getElementById('rowContainer');
+        const gridContainer = document.getElementById('gridContainer');
 
-        // Function to display rows
-        function displayRows(data) {
-            container.innerHTML = ''; // Clear previous content
-            data.forEach(row => {
-                const rowDiv = document.createElement('div');
-                rowDiv.className = 'row';
-                rowDiv.innerHTML = `
-                    <span class="tracker">${row.tracker}</span>
-                    <span class="dcbox">${row.dcbox}</span>
-                    <span class="string">${row.string}</span>
-                `;
-                container.appendChild(rowDiv);
+        // Function to populate the grid
+        function populateGrid() {
+            gridContainer.innerHTML = ''; // Clear container
+            trackerData.forEach((row, index) => {
+                const trackerDiv = document.createElement('div');
+                trackerDiv.className = 'tracker';
+                trackerDiv.textContent = row.tracker;
+                trackerDiv.onclick = () => openDetails(row);
+                gridContainer.appendChild(trackerDiv);
+
+                const dcboxDiv = document.createElement('div');
+                dcboxDiv.className = 'dcbox';
+                dcboxDiv.textContent = row.dcbox;
+                gridContainer.appendChild(dcboxDiv);
+
+                const stringDiv = document.createElement('div');
+                stringDiv.className = 'string';
+                stringDiv.textContent = row.string;
+                gridContainer.appendChild(stringDiv);
             });
         }
 
-        // Function to search rows
-        function searchRows() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const filteredData = data.filter(row => 
-                row.tracker.toLowerCase().includes(input) ||
-                row.dcbox.toLowerCase().includes(input)
-            );
-            displayRows(filteredData);
+        // Function to open tracker details
+        function openDetails(row) {
+            document.getElementById('popupTitle').textContent = `Details for ${row.tracker}`;
+            document.getElementById('popupDCBox').textContent = `DC Box: ${row.dcbox}`;
+            document.getElementById('popupString').textContent = `String: ${row.string}`;
+            document.getElementById('detailsPopup').style.display = 'block';
         }
 
-        // Initial display
-        displayRows(data);
+        // Function to close the popup
+        function closeDetails() {
+            document.getElementById('detailsPopup').style.display = 'none';
+        }
+
+        // Populate grid on page load
+        populateGrid();
     </script>
 </body>
 </html>
