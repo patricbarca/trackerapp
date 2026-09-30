@@ -158,7 +158,8 @@ p { margin: 0 0 1em; }
   .hero-grid, .calc-grid, .contact-grid { grid-template-columns: 1fr; }
   .grid-3, .grid-4, .steps, .dash-kpis { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 720px) {
+.nav-links a { white-space: nowrap; }
+@media (max-width: 1100px) {
   .nav-toggle { display: block; }
   .nav-links {
     display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; align-items: stretch;
@@ -166,7 +167,10 @@ p { margin: 0 0 1em; }
   }
   .nav-links.open { display: flex; }
   .nav-links a { padding: 12px 0; }
+  .nav-links .lang { align-self: flex-start; padding: 4px 10px; margin: 8px 0; }
   .nav-links .btn { text-align: center; margin-top: 8px; }
+}
+@media (max-width: 720px) {
   .section { padding: 64px 0; }
   .hero { padding: 64px 0; }
 }
@@ -178,4 +182,31 @@ p { margin: 0 0 1em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .service { transition: none; }
+}
+
+/* Language switch */
+.nav-links .lang { border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px; font-size: .85rem; }
+.nav-links .lang:hover { border-color: var(--accent); }
+
+/* Packages */
+.package { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; display: flex; flex-direction: column; }
+.package.featured { border-color: var(--accent); box-shadow: 0 20px 50px rgba(245,179,1,.12); }
+.package h3 { font-size: 1.2rem; margin-bottom: 4px; }
+.pkg-type { color: var(--muted); font-size: .9rem; }
+.package ul { list-style: none; padding: 0; margin: 0 0 20px; color: var(--text-2); flex: 1; }
+.package li { padding-left: 24px; position: relative; margin-bottom: 8px; }
+.package li::before { content: "✓"; position: absolute; left: 0; color: var(--good); font-weight: 700; }
+.pkg-price { font-weight: 700; font-size: 1.05rem; }
+.package .btn { text-align: center; }
+.badge { position: absolute; top: -12px; left: 24px; background: var(--accent); color: #1a1200; font-size: .75rem; font-weight: 700; border-radius: 999px; padding: 3px 10px; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; }
+.about-text p { color: var(--text-2); }
+.who { padding-top: 0; }
+.contact-direct a, .site-footer a { color: var(--accent); }
+
+@media (max-width: 960px) {
+  .about-grid { grid-template-columns: 1fr; gap: 8px; }
+  .packages { grid-template-columns: 1fr; }
 }

@@ -1,7 +1,31 @@
 // Solar AI Analytics — site scripts
 
-// Replace with the real business inbox before going live.
-const CONTACT_EMAIL = "hello@example.com";
+const CONTACT_EMAIL = "hello@solarai.app";
+
+// Page language drives number/date formats and the messages generated below.
+const ES = document.documentElement.lang.startsWith("es");
+const LOCALE = ES ? "es-AU" : "en-AU";
+const T = ES
+  ? {
+      onTarget: "▲ en objetivo", belowTarget: "▼ bajo objetivo",
+      enterInputs: "Introduce energía, capacidad DC e irradiación para calcular.",
+      revenueGap: (aud, t) => `≈ AUD ${aud} de ingresos por debajo del objetivo de ${t}% en este periodo.`,
+      atTarget: "La planta está en o por encima del PR objetivo en este periodo.",
+      prOver100: "Un PR superior al 100% suele indicar un problema del sensor de irradiancia o de los datos: conviene revisarlo.",
+      mailSubject: "Consulta — Solar AI Analytics",
+      mailFields: ["Nombre", "Email", "Empresa", "Tamaño del portfolio"],
+      mailOpened: "Tu aplicación de correo debería abrirse con el mensaje listo para enviar.",
+    }
+  : {
+      onTarget: "▲ on target", belowTarget: "▼ below target",
+      enterInputs: "Enter energy, DC capacity and irradiation to calculate.",
+      revenueGap: (aud, t) => `≈ AUD ${aud} of revenue below the ${t}% target for this period.`,
+      atTarget: "The plant is at or above the target PR for this period.",
+      prOver100: "PR above 100% usually points to an irradiance sensor or data issue — worth checking.",
+      mailSubject: "Enquiry — Solar AI Analytics",
+      mailFields: ["Name", "Email", "Company", "Portfolio size"],
+      mailOpened: "Your email app should open with the message ready to send.",
+    };
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -20,7 +44,7 @@ links.querySelectorAll("a").forEach((a) =>
 );
 
 // ---------- Demo dashboard (synthetic data) ----------
-const fmt = (n, d = 1) => n.toLocaleString("en-AU", { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmt = (n, d = 1) => n.toLocaleString(LOCALE, { minimumFractionDigits: d, maximumFractionDigits: d });
 
 function seededRandom(seed) {
   return () => {
@@ -65,7 +89,7 @@ function renderDemo() {
 
   const tbody = document.querySelector("#pr-table tbody");
   tbody.innerHTML = days
-    .map((d) => `<tr><td>${d.date.toLocaleDateString("en-AU", { day: "2-digit", month: "short" })}</td><td>${fmt(d.irr, 2)}</td><td>${fmt(d.energyMwh, 0)}</td><td>${fmt(d.pr * 100)}%</td></tr>`)
+    .map((d) => `<tr><td>${d.date.toLocaleDateString(LOCALE, { day: "2-digit", month: "short" })}</td><td>${fmt(d.irr, 2)}</td><td>${fmt(d.energyMwh, 0)}</td><td>${fmt(d.pr * 100)}%</td></tr>`)
     .join("");
 
   drawChart(days);
@@ -111,7 +135,7 @@ function drawChart(days) {
     const bar = el("path", { class: "bar", d: path });
     if (i % labelEvery === 0) {
       el("text", { class: "axis-text", x: x + bw / 2, y: H - 8, "text-anchor": "middle" }).textContent =
-        d.date.toLocaleDateString("en-AU", { day: "numeric", month: "short" });
+        d.date.toLocaleDateString(LOCALE, { day: "numeric", month: "short" });
     }
     return bar;
   });
@@ -123,8 +147,8 @@ function drawChart(days) {
     const show = () => {
       bars.forEach((b, j) => b.classList.toggle("dim", j !== i));
       const ok = d.pr >= TARGET_PR;
-      tip.innerHTML = `<b>${d.date.toLocaleDateString("en-AU", { weekday: "short", day: "numeric", month: "short" })}</b>
-        PR ${fmt(d.pr * 100)}% <span class="${ok ? "status-good" : "status-bad"}">${ok ? "▲ on target" : "▼ below target"}</span><br>
+      tip.innerHTML = `<b>${d.date.toLocaleDateString(LOCALE, { weekday: "short", day: "numeric", month: "short" })}</b>
+        PR ${fmt(d.pr * 100)}% <span class="${ok ? "status-good" : "status-bad"}">${ok ? T.onTarget : T.belowTarget}</span><br>
         ${fmt(d.energyMwh, 0)} MWh · ${fmt(d.irr, 2)} kWh/m²`;
       tip.hidden = false;
       const px = ((m.left + (i + 0.5) * slot) / W) * svg.clientWidth;
@@ -159,7 +183,7 @@ function calculate() {
 
   if (!(eMwh >= 0) || !(capKwp > 0) || !(irr > 0)) {
     out.forEach((id) => ($(id).textContent = "–"));
-    $("r-msg").textContent = "Enter energy, DC capacity and irradiation to calculate.";
+    $("r-msg").textContent = T.enterInputs;
     return;
   }
 
@@ -176,9 +200,9 @@ function calculate() {
     const gapMwh = ((target - pr) * refEnergyKwh) / 1000;
     $("r-gap").textContent = (gapMwh > 0 ? "−" : "+") + fmt(Math.abs(gapMwh), 0) + " MWh";
     if (gapMwh > 0 && price > 0) {
-      $("r-msg").textContent = `≈ AUD ${fmt(gapMwh * price, 0)} of revenue below the ${fmt(target * 100)}% target for this period.`;
+      $("r-msg").textContent = T.revenueGap(fmt(gapMwh * price, 0), fmt(target * 100));
     } else if (gapMwh <= 0) {
-      $("r-msg").textContent = "The plant is at or above the target PR for this period.";
+      $("r-msg").textContent = T.atTarget;
     } else {
       $("r-msg").textContent = "";
     }
@@ -186,7 +210,7 @@ function calculate() {
     $("r-gap").textContent = "–";
     $("r-msg").textContent = "";
   }
-  if (pr > 1) $("r-msg").textContent = "PR above 100% usually points to an irradiance sensor or data issue — worth checking.";
+  if (pr > 1) $("r-msg").textContent = T.prOver100;
 }
 
 $("pr-form").addEventListener("input", calculate);
@@ -199,7 +223,8 @@ $("contact-form").addEventListener("submit", (e) => {
   const f = e.target;
   if (!f.reportValidity()) return;
   const data = new FormData(f);
-  const body = `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nCompany: ${data.get("company")}\nPortfolio size: ${data.get("size")}\n\n${data.get("message")}`;
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Enquiry — Solar AI Analytics")}&body=${encodeURIComponent(body)}`;
-  $("contact-msg").textContent = "Your email app should open with the message ready to send.";
+  const [n, em, co, sz] = T.mailFields;
+  const body = `${n}: ${data.get("name")}\n${em}: ${data.get("email")}\n${co}: ${data.get("company")}\n${sz}: ${data.get("size")}\n\n${data.get("message")}`;
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(T.mailSubject)}&body=${encodeURIComponent(body)}`;
+  $("contact-msg").textContent = T.mailOpened;
 });
