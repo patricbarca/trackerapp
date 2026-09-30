@@ -1,134 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Solar Farm Blocks</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        h1 {
-            text-align: center;
-            margin: 10px 0;
-            color: #333;
-        }
-
-        .main-view {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px auto;
-            border: 1px solid #ccc;
-        }
-
-        .main-view img {
-            width: 100%;
-            display: block;
-        }
-
-        /* Block overlays */
-        .block {
-            position: absolute;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: border 0.3s;
-        }
-
-        .block:hover {
-            border: 2px solid red;
-            background-color: rgba(255, 0, 0, 0.1);
-        }
-
-        /* Add block coordinates based on the image */
-        #block1 { top: 5%; left: 15%; width: 10%; height: 20%; }
-        #block2 { top: 30%; left: 10%; width: 15%; height: 25%; }
-        #block3 { top: 20%; left: 40%; width: 20%; height: 30%; }
-        #block4 { top: 65%; left: 50%; width: 20%; height: 25%; }
-
-        /* Popup details view */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            z-index: 1000;
-            width: 80%;
-            max-width: 800px;
-            overflow-y: auto;
-            max-height: 80%;
-        }
-
-        .close-btn {
-            display: block;
-            margin-top: 10px;
-            text-align: center;
-            background-color: red;
-            color: white;
-            padding: 8px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .close-btn:hover {
-            background-color: darkred;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar AI Analytics — Performance intelligence for solar plants</title>
+  <meta name="description" content="Solar AI Analytics builds performance dashboards, performance ratio (PR) analytics and custom applications for utility-scale and C&I solar plants across Australia.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Interactive Solar Farm Blocks</h1>
-    <div class="main-view">
-        <!-- Main view image -->
-        <img src="image.png" alt="Main View">
-
-        <!-- Clickable blocks -->
-        <div class="block" id="block1" onclick="showBlockDetails('Block 1')"></div>
-        <div class="block" id="block2" onclick="showBlockDetails('Block 2')"></div>
-        <div class="block" id="block3" onclick="showBlockDetails('Block 3')"></div>
-        <div class="block" id="block4" onclick="showBlockDetails('Block 4')"></div>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Solar AI Analytics home">
+        <img src="assets/favicon.svg" alt="" width="32" height="32">
+        <span>Solar <strong>AI</strong> Analytics</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-links" class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#demo">Live demo</a>
+        <a href="#calculator">PR calculator</a>
+        <a href="#process">How we work</a>
+        <a href="#contact" class="btn btn-small">Book a call</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Popup for block details -->
-    <div id="popup" class="popup">
-        <h2 id="popup-title">Block Details</h2>
-        <p id="popup-content">Details about the block will appear here.</p>
-        <a href="#" class="close-btn" onclick="closePopup()">Close</a>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Solar performance analytics · Australia</p>
+          <h1>Turn raw SCADA data into <span class="accent">bankable performance insight</span>.</h1>
+          <p class="lead">
+            We build performance dashboards, performance ratio (PR) analytics and custom tools
+            for solar farms, C&amp;I rooftops and hybrid sites with batteries — so asset owners,
+            EPCs and O&amp;M teams can see exactly where energy is lost and what it costs.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn">Book a free data review</a>
+            <a href="#demo" class="btn btn-ghost">See a sample dashboard</a>
+          </div>
+          <ul class="hero-points">
+            <li>IEC 61724-1 aligned PR &amp; availability methods</li>
+            <li>Works with your existing SCADA, data loggers and monitoring portals</li>
+            <li>Built for NEM &amp; WEM realities: curtailment, negative prices, clipping</li>
+          </ul>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="hero-card-head">
+            <span class="dot"></span> Portfolio overview <span class="tag">sample data</span>
+          </div>
+          <div class="hero-kpis">
+            <div><span class="kpi-label">Performance ratio</span><span class="kpi-value">82.4%</span></div>
+            <div><span class="kpi-label">Availability</span><span class="kpi-value">99.1%</span></div>
+            <div><span class="kpi-label">Energy lost (MTD)</span><span class="kpi-value">312 MWh</span></div>
+            <div><span class="kpi-label">Open alerts</span><span class="kpi-value">7</span></div>
+          </div>
+          <svg class="hero-spark" viewBox="0 0 300 80" preserveAspectRatio="none">
+            <polyline points="0,50 20,44 40,47 60,38 80,40 100,33 120,36 140,30 160,34 180,27 200,31 220,24 240,29 260,22 280,26 300,20" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="section band">
+      <div class="container">
+        <h2 class="section-title">Most plants lose energy nobody is measuring</h2>
+        <div class="grid grid-4">
+          <div class="stat-card"><h3>Underperforming strings</h3><p>Faulty strings, blown fuses and tracker faults hide inside inverter totals for weeks.</p></div>
+          <div class="stat-card"><h3>Soiling &amp; degradation</h3><p>Dust and module degradation erode yield slowly, so cleaning and warranty decisions are guessed.</p></div>
+          <div class="stat-card"><h3>Curtailment &amp; clipping</h3><p>Network limits, economic curtailment and inverter clipping get mixed with real faults in the numbers.</p></div>
+          <div class="stat-card"><h3>Spreadsheet reporting</h3><p>Monthly reports are built by hand, late, and calculated differently on every site.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="container">
+        <p class="eyebrow">Services</p>
+        <h2 class="section-title">Everything you need to understand and improve plant performance</h2>
+        <div class="grid grid-3">
+          <article class="service">
+            <div class="icon">📊</div>
+            <h3>Performance dashboards</h3>
+            <p>Portfolio-to-string dashboards in Power BI, Grafana or a custom web app: PR, availability, specific yield, irradiance and losses in one place.</p>
+          </article>
+          <article class="service">
+            <div class="icon">☀️</div>
+            <h3>Performance ratio engine</h3>
+            <p>Automated daily, monthly and contractual PR — raw and temperature-corrected — with transparent data filtering and documented methodology.</p>
+          </article>
+          <article class="service">
+            <div class="icon">🤖</div>
+            <h3>AI fault &amp; anomaly detection</h3>
+            <p>Machine-learning models that compare each inverter and string against its expected output and flag deviations before they become big losses.</p>
+          </article>
+          <article class="service">
+            <div class="icon">📉</div>
+            <h3>Loss waterfall analysis</h3>
+            <p>Break total losses into irradiance, temperature, soiling, availability, curtailment, clipping and unexplained — in MWh and in AUD.</p>
+          </article>
+          <article class="service">
+            <div class="icon">🧹</div>
+            <h3>Soiling &amp; cleaning optimisation</h3>
+            <p>Estimate soiling rates from site data and schedule cleaning when the recovered revenue outweighs the cost.</p>
+          </article>
+          <article class="service">
+            <div class="icon">📈</div>
+            <h3>Generation forecasting</h3>
+            <p>Short-term and day-ahead generation forecasts from weather data to support trading, dispatch and battery scheduling.</p>
+          </article>
+          <article class="service">
+            <div class="icon">✅</div>
+            <h3>Commissioning &amp; PR tests</h3>
+            <p>Data analysis and reports for capacity tests, PR guarantee tests and EPC handover — reproducible and audit-ready.</p>
+          </article>
+          <article class="service">
+            <div class="icon">🔋</div>
+            <h3>BESS &amp; hybrid analytics</h3>
+            <p>Round-trip efficiency, state-of-health trends and charge/discharge behaviour for co-located batteries.</p>
+          </article>
+          <article class="service">
+            <div class="icon">🧾</div>
+            <h3>Automated reporting</h3>
+            <p>Monthly owner, lender and O&amp;M reports generated automatically, with consistent KPIs across every site.</p>
+          </article>
+          <article class="service">
+            <div class="icon">🛠️</div>
+            <h3>Data engineering</h3>
+            <p>Pipelines that ingest SCADA, logger and weather-station data, clean it, and store it in a single reliable database.</p>
+          </article>
+          <article class="service">
+            <div class="icon">📱</div>
+            <h3>Custom apps &amp; tools</h3>
+            <p>Field apps for O&amp;M technicians, tracker &amp; block maps, work-order links and any internal tool your team needs.</p>
+          </article>
+          <article class="service">
+            <div class="icon">🎓</div>
+            <h3>Training &amp; consulting</h3>
+            <p>Help your team adopt consistent KPI definitions and get the most from the tools we build.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO DASHBOARD -->
+    <section id="demo" class="section band">
+      <div class="container">
+        <p class="eyebrow">Live demo</p>
+        <h2 class="section-title">What a daily PR dashboard looks like</h2>
+        <p class="section-sub">Illustrative only — generated sample data for a fictional 100&nbsp;MWp single-axis tracker plant. Hover or tap a bar for details.</p>
+
+        <div class="dashboard">
+          <div class="dash-kpis">
+            <div class="kpi"><span class="kpi-label">Average PR (30 days)</span><span class="kpi-value" id="kpi-pr">–</span></div>
+            <div class="kpi"><span class="kpi-label">Days below target</span><span class="kpi-value" id="kpi-below">–</span></div>
+            <div class="kpi"><span class="kpi-label">Energy exported</span><span class="kpi-value" id="kpi-energy">–</span></div>
+            <div class="kpi"><span class="kpi-label">Est. energy lost vs target</span><span class="kpi-value" id="kpi-lost">–</span></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head">
+              <h3>Daily performance ratio</h3>
+              <div class="chart-legend">
+                <span><i class="sw sw-bar"></i> Daily PR</span>
+                <span><i class="sw sw-line"></i> Target PR (80%)</span>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <svg id="pr-chart" role="img" aria-label="Bar chart of daily performance ratio over 30 days, with an 80% target line"></svg>
+              <div id="chart-tip" class="chart-tip" hidden></div>
+            </div>
+            <details class="table-view">
+              <summary>Show data table</summary>
+              <div class="table-scroll"><table id="pr-table"><thead><tr><th>Day</th><th>POA irradiation (kWh/m²)</th><th>Energy (MWh)</th><th>PR</th></tr></thead><tbody></tbody></table></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section id="calculator" class="section">
+      <div class="container calc-grid">
+        <div>
+          <p class="eyebrow">Free tool</p>
+          <h2 class="section-title">Performance ratio calculator</h2>
+          <p class="section-sub">A quick PR check using the standard definition: actual AC energy divided by the energy the DC capacity would produce at STC for the measured plane-of-array irradiation.</p>
+          <div class="formula">
+            PR = E<sub>AC</sub> ÷ ( P<sub>DC,STC</sub> × H<sub>POA</sub> ÷ 1&nbsp;kW/m² )
+          </div>
+          <p class="note">Temperature-corrected PR divides by a correction factor 1 + γ·(T<sub>cell</sub> − 25&nbsp;°C). This is a simplified single-period estimate; contractual PR usually applies data filters and time-step (e.g. 15-minute) corrections defined in the EPC or O&amp;M contract.</p>
+        </div>
+        <form id="pr-form" class="calc-card" novalidate>
+          <label>AC energy exported <span>MWh</span>
+            <input type="number" id="c-energy" value="16500" min="0" step="any" required></label>
+          <label>DC capacity <span>kWp</span>
+            <input type="number" id="c-cap" value="100000" min="0" step="any" required></label>
+          <label>POA irradiation for the period <span>kWh/m²</span>
+            <input type="number" id="c-irr" value="205" min="0" step="any" required></label>
+          <div class="row-2">
+            <label>Avg. cell temperature <span>°C</span>
+              <input type="number" id="c-temp" value="45" step="any"></label>
+            <label>Temp. coefficient γ <span>%/°C</span>
+              <input type="number" id="c-gamma" value="-0.35" step="any"></label>
+          </div>
+          <div class="row-2">
+            <label>Target PR <span>%</span>
+              <input type="number" id="c-target" value="82" min="0" max="100" step="any"></label>
+            <label>Energy price <span>AUD/MWh</span>
+              <input type="number" id="c-price" value="60" min="0" step="any"></label>
+          </div>
+          <div class="calc-results" aria-live="polite">
+            <div><span>PR</span><strong id="r-pr">–</strong></div>
+            <div><span>Temp.-corrected PR</span><strong id="r-prc">–</strong></div>
+            <div><span>Specific yield</span><strong id="r-yield">–</strong></div>
+            <div><span>Gap to target</span><strong id="r-gap">–</strong></div>
+          </div>
+          <p class="calc-msg" id="r-msg"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section band">
+      <div class="container">
+        <p class="eyebrow">How we work</p>
+        <h2 class="section-title">From raw data to decisions in four steps</h2>
+        <ol class="steps">
+          <li><h3>1 · Data review</h3><p>We connect to a sample of your SCADA or monitoring data and assess quality, gaps and sensor issues.</p></li>
+          <li><h3>2 · KPI definition</h3><p>We agree PR, availability and loss definitions with you — aligned with your contracts and IEC 61724-1.</p></li>
+          <li><h3>3 · Build</h3><p>We deliver the pipelines, dashboards and models, iterating with your asset and O&amp;M teams.</p></li>
+          <li><h3>4 · Support</h3><p>Ongoing monitoring, model tuning, new sites onboarded and monthly reporting as a managed service.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WHO -->
+    <section class="section">
+      <div class="container grid grid-3">
+        <div class="audience"><h3>Asset owners &amp; investors</h3><p>Portfolio-level visibility of yield, losses and revenue against budget.</p></div>
+        <div class="audience"><h3>EPC contractors</h3><p>Commissioning analytics, PR guarantee tests and defect-period monitoring.</p></div>
+        <div class="audience"><h3>O&amp;M providers</h3><p>Prioritised fault lists, cleaning schedules and automated client reports.</p></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section cta">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">Let's look at your plant data</h2>
+          <p class="section-sub">Tell us about your site or portfolio. We'll reply with an honest view of what your data can show and what it would take to get there.</p>
+        </div>
+        <form id="contact-form" class="calc-card">
+          <label>Name<input type="text" name="name" required autocomplete="name"></label>
+          <label>Email<input type="email" name="email" required autocomplete="email"></label>
+          <label>Company<input type="text" name="company" autocomplete="organization"></label>
+          <label>Portfolio size
+            <select name="size">
+              <option>Under 5 MWp</option>
+              <option>5 – 50 MWp</option>
+              <option>50 – 200 MWp</option>
+              <option>Over 200 MWp</option>
+            </select>
+          </label>
+          <label>What do you need?<textarea name="message" rows="4"></textarea></label>
+          <button type="submit" class="btn">Send enquiry</button>
+          <p class="calc-msg" id="contact-msg"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand"><img src="assets/favicon.svg" alt="" width="24" height="24"><span>Solar <strong>AI</strong> Analytics</span></div>
+      <p>Performance analytics for solar plants in Australia.</p>
+      <p>© <span id="year"></span> Solar AI Analytics</p>
     </div>
+  </footer>
 
-    <script>
-        // Function to show block details
-        function showBlockDetails(blockName) {
-            const popupTitle = document.getElementById('popup-title');
-            const popupContent = document.getElementById('popup-content');
-
-            popupTitle.textContent = `${blockName} Details`;
-            popupContent.innerHTML = `
-                <strong>Trackers in ${blockName}:</strong>
-                <ul>
-                    <li>T1-111: DCBOX-1.1.1</li>
-                    <li>T1-112: DCBOX-1.1.2</li>
-                    <li>T1-113: DCBOX-1.1.3</li>
-                    <li>T2-211: DCBOX-2.1.1</li>
-                    <li>T2-212: DCBOX-2.1.2</li>
-                    <li>T2-213: DCBOX-2.1.3</li>
-                </ul>
-            `;
-            document.getElementById('popup').style.display = 'block';
-        }
-
-        // Function to close the popup
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-    </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
