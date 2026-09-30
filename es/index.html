@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar AI Analytics — Inteligencia de rendimiento para plantas solares</title>
+  <meta name="description" content="Solar AI Analytics desarrolla dashboards de rendimiento, análisis de performance ratio (PR) y aplicaciones a medida para plantas solares en Australia.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="../">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Inicio Solar AI Analytics">
+        <img src="../assets/favicon.svg" alt="" width="32" height="32">
+        <span>Solar <strong>AI</strong> Analytics</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-links" class="nav-links">
+        <a href="#services">Servicios</a>
+        <a href="#demo">Demo</a>
+        <a href="#calculator">Calculadora PR</a>
+        <a href="#packages">Paquetes</a>
+        <a href="#about">Nosotros</a>
+        <a href="../" class="lang" hreflang="en" lang="en">EN</a>
+        <a href="#contact" class="btn btn-small">Agenda una llamada</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Analítica de rendimiento solar · Australia</p>
+          <h1>Convierte los datos SCADA en <span class="accent">información de rendimiento fiable</span>.</h1>
+          <p class="lead">
+            Desarrollamos dashboards de rendimiento, análisis de performance ratio (PR) y herramientas
+            a medida para parques solares, instalaciones C&amp;I y plantas híbridas con baterías, para que
+            propietarios, EPC y equipos de O&amp;M vean exactamente dónde se pierde energía y cuánto cuesta.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn">Revisión gratuita de datos</a>
+            <a href="#demo" class="btn btn-ghost">Ver un dashboard de ejemplo</a>
+          </div>
+          <ul class="hero-points">
+            <li>Métodos de PR y disponibilidad alineados con IEC 61724-1</li>
+            <li>Compatible con tu SCADA, dataloggers y portales de monitorización actuales</li>
+            <li>Pensado para el NEM y el WEM: curtailment, precios negativos, clipping</li>
+          </ul>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="hero-card-head">
+            <span class="dot"></span> Resumen del portfolio <span class="tag">datos de ejemplo</span>
+          </div>
+          <div class="hero-kpis">
+            <div><span class="kpi-label">Performance ratio</span><span class="kpi-value">82,4%</span></div>
+            <div><span class="kpi-label">Disponibilidad</span><span class="kpi-value">99,1%</span></div>
+            <div><span class="kpi-label">Energía perdida (mes)</span><span class="kpi-value">312 MWh</span></div>
+            <div><span class="kpi-label">Alertas abiertas</span><span class="kpi-value">7</span></div>
+          </div>
+          <svg class="hero-spark" viewBox="0 0 300 80" preserveAspectRatio="none">
+            <polyline points="0,50 20,44 40,47 60,38 80,40 100,33 120,36 140,30 160,34 180,27 200,31 220,24 240,29 260,22 280,26 300,20" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMAS -->
+    <section class="section band">
+      <div class="container">
+        <h2 class="section-title">La mayoría de las plantas pierden energía que nadie está midiendo</h2>
+        <div class="grid grid-4">
+          <div class="stat-card"><h3>Strings con bajo rendimiento</h3><p>Strings defectuosos, fusibles fundidos y fallos de trackers se esconden durante semanas dentro de los totales del inversor.</p></div>
+          <div class="stat-card"><h3>Suciedad y degradación</h3><p>El polvo y la degradación de módulos reducen la producción poco a poco, y las decisiones de limpieza y garantía se toman a ojo.</p></div>
+          <div class="stat-card"><h3>Curtailment y clipping</h3><p>Los límites de red, el curtailment económico y el clipping del inversor se mezclan con los fallos reales en los números.</p></div>
+          <div class="stat-card"><h3>Reportes en Excel</h3><p>Los informes mensuales se hacen a mano, llegan tarde y se calculan de forma distinta en cada planta.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="services" class="section">
+      <div class="container">
+        <p class="eyebrow">Servicios</p>
+        <h2 class="section-title">Todo lo que necesitas para entender y mejorar el rendimiento de tu planta</h2>
+        <div class="grid grid-3">
+          <article class="service"><div class="icon">📊</div><h3>Dashboards de rendimiento</h3><p>Dashboards desde el portfolio hasta el string en Power BI, Grafana o una web a medida: PR, disponibilidad, rendimiento específico, irradiancia y pérdidas en un solo lugar.</p></article>
+          <article class="service"><div class="icon">☀️</div><h3>Motor de cálculo de PR</h3><p>PR diario, mensual y contractual automatizado, bruto y corregido por temperatura, con filtrado de datos transparente y metodología documentada.</p></article>
+          <article class="service"><div class="icon">🤖</div><h3>Detección de fallos y anomalías con IA</h3><p>Modelos de machine learning que comparan cada inversor y string con su producción esperada y avisan de desviaciones antes de que se conviertan en grandes pérdidas.</p></article>
+          <article class="service"><div class="icon">📉</div><h3>Análisis de pérdidas (waterfall)</h3><p>Desglose de las pérdidas en irradiancia, temperatura, suciedad, disponibilidad, curtailment, clipping y no explicadas, en MWh y en AUD.</p></article>
+          <article class="service"><div class="icon">🧹</div><h3>Optimización de suciedad y limpieza</h3><p>Estimación de la tasa de suciedad a partir de datos de la planta y programación de limpiezas cuando el ingreso recuperado supera su coste.</p></article>
+          <article class="service"><div class="icon">📈</div><h3>Pronóstico de generación</h3><p>Pronósticos de corto plazo y del día siguiente a partir de datos meteorológicos, para apoyar trading, despacho y gestión de baterías.</p></article>
+          <article class="service"><div class="icon">✅</div><h3>Comisionado y tests de PR</h3><p>Análisis de datos e informes para tests de capacidad, tests de garantía de PR y entrega EPC, reproducibles y listos para auditoría.</p></article>
+          <article class="service"><div class="icon">🔋</div><h3>Analítica BESS e híbridos</h3><p>Eficiencia de ida y vuelta, tendencias de estado de salud y comportamiento de carga/descarga de baterías co-ubicadas.</p></article>
+          <article class="service"><div class="icon">🧾</div><h3>Reportes automáticos</h3><p>Informes mensuales para propietarios, financiadores y O&amp;M generados automáticamente, con KPIs coherentes en todas las plantas.</p></article>
+          <article class="service"><div class="icon">🛠️</div><h3>Ingeniería de datos</h3><p>Pipelines que integran datos de SCADA, dataloggers y estaciones meteorológicas, los limpian y los guardan en una única base de datos fiable.</p></article>
+          <article class="service"><div class="icon">📱</div><h3>Apps y herramientas a medida</h3><p>Apps de campo para técnicos de O&amp;M, mapas de trackers y bloques, enlaces a órdenes de trabajo y cualquier herramienta interna que necesite tu equipo.</p></article>
+          <article class="service"><div class="icon">🎓</div><h3>Formación y consultoría</h3><p>Ayudamos a tu equipo a adoptar definiciones de KPI coherentes y a sacar el máximo partido a las herramientas que construimos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section id="demo" class="section band">
+      <div class="container">
+        <p class="eyebrow">Demo en vivo</p>
+        <h2 class="section-title">Así se ve un dashboard de PR diario</h2>
+        <p class="section-sub">Solo ilustrativo: datos de ejemplo generados para una planta ficticia de 100&nbsp;MWp con seguidores a un eje. Pasa el cursor o toca una barra para ver el detalle.</p>
+
+        <div class="dashboard">
+          <div class="dash-kpis">
+            <div class="kpi"><span class="kpi-label">PR medio (30 días)</span><span class="kpi-value" id="kpi-pr">–</span></div>
+            <div class="kpi"><span class="kpi-label">Días bajo objetivo</span><span class="kpi-value" id="kpi-below">–</span></div>
+            <div class="kpi"><span class="kpi-label">Energía exportada</span><span class="kpi-value" id="kpi-energy">–</span></div>
+            <div class="kpi"><span class="kpi-label">Energía perdida estimada vs objetivo</span><span class="kpi-value" id="kpi-lost">–</span></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head">
+              <h3>Performance ratio diario</h3>
+              <div class="chart-legend">
+                <span><i class="sw sw-bar"></i> PR diario</span>
+                <span><i class="sw sw-line"></i> PR objetivo (80%)</span>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <svg id="pr-chart" role="img" aria-label="Gráfico de barras del performance ratio diario durante 30 días, con una línea de objetivo del 80%"></svg>
+              <div id="chart-tip" class="chart-tip" hidden></div>
+            </div>
+            <details class="table-view">
+              <summary>Mostrar tabla de datos</summary>
+              <div class="table-scroll"><table id="pr-table"><thead><tr><th>Día</th><th>Irradiación POA (kWh/m²)</th><th>Energía (MWh)</th><th>PR</th></tr></thead><tbody></tbody></table></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section id="calculator" class="section">
+      <div class="container calc-grid">
+        <div>
+          <p class="eyebrow">Herramienta gratuita</p>
+          <h2 class="section-title">Calculadora de performance ratio</h2>
+          <p class="section-sub">Una comprobación rápida del PR con la definición estándar: energía AC real dividida entre la energía que produciría la capacidad DC en condiciones STC para la irradiación medida en el plano de los módulos.</p>
+          <div class="formula">
+            PR = E<sub>AC</sub> ÷ ( P<sub>DC,STC</sub> × H<sub>POA</sub> ÷ 1&nbsp;kW/m² )
+          </div>
+          <p class="note">El PR corregido por temperatura divide entre un factor 1 + γ·(T<sub>célula</sub> − 25&nbsp;°C). Es una estimación simplificada para un único periodo; el PR contractual suele aplicar filtros de datos y correcciones por intervalo (p. ej. 15 minutos) definidos en el contrato EPC u O&amp;M.</p>
+        </div>
+        <form id="pr-form" class="calc-card" novalidate>
+          <label>Energía AC exportada <span>MWh</span>
+            <input type="number" id="c-energy" value="16500" min="0" step="any" required></label>
+          <label>Capacidad DC <span>kWp</span>
+            <input type="number" id="c-cap" value="100000" min="0" step="any" required></label>
+          <label>Irradiación POA del periodo <span>kWh/m²</span>
+            <input type="number" id="c-irr" value="205" min="0" step="any" required></label>
+          <div class="row-2">
+            <label>Temp. media de célula <span>°C</span>
+              <input type="number" id="c-temp" value="45" step="any"></label>
+            <label>Coef. de temperatura γ <span>%/°C</span>
+              <input type="number" id="c-gamma" value="-0.35" step="any"></label>
+          </div>
+          <div class="row-2">
+            <label>PR objetivo <span>%</span>
+              <input type="number" id="c-target" value="82" min="0" max="100" step="any"></label>
+            <label>Precio de la energía <span>AUD/MWh</span>
+              <input type="number" id="c-price" value="60" min="0" step="any"></label>
+          </div>
+          <div class="calc-results" aria-live="polite">
+            <div><span>PR</span><strong id="r-pr">–</strong></div>
+            <div><span>PR corregido por temp.</span><strong id="r-prc">–</strong></div>
+            <div><span>Rendimiento específico</span><strong id="r-yield">–</strong></div>
+            <div><span>Diferencia con objetivo</span><strong id="r-gap">–</strong></div>
+          </div>
+          <p class="calc-msg" id="r-msg"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="process" class="section band">
+      <div class="container">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2 class="section-title">De datos en bruto a decisiones en cuatro pasos</h2>
+        <ol class="steps">
+          <li><h3>1 · Revisión de datos</h3><p>Nos conectamos a una muestra de tus datos de SCADA o monitorización y evaluamos su calidad, huecos y problemas de sensores.</p></li>
+          <li><h3>2 · Definición de KPIs</h3><p>Acordamos contigo las definiciones de PR, disponibilidad y pérdidas, alineadas con tus contratos y con IEC 61724-1.</p></li>
+          <li><h3>3 · Desarrollo</h3><p>Entregamos pipelines, dashboards y modelos, iterando con tus equipos de activos y de O&amp;M.</p></li>
+          <li><h3>4 · Soporte</h3><p>Monitorización continua, ajuste de modelos, incorporación de nuevas plantas y reportes mensuales como servicio gestionado.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- A QUIÉN -->
+    <section class="section who">
+      <div class="container grid grid-3">
+        <div class="audience"><h3>Propietarios e inversores</h3><p>Visibilidad del portfolio completo: producción, pérdidas e ingresos frente al presupuesto.</p></div>
+        <div class="audience"><h3>Contratistas EPC</h3><p>Analítica de comisionado, tests de garantía de PR y seguimiento durante el periodo de garantía.</p></div>
+        <div class="audience"><h3>Empresas de O&amp;M</h3><p>Listas de fallos priorizadas, calendarios de limpieza e informes automáticos para clientes.</p></div>
+      </div>
+    </section>
+
+    <!-- PAQUETES -->
+    <section id="packages" class="section band">
+      <div class="container">
+        <p class="eyebrow">Paquetes</p>
+        <h2 class="section-title">Empieza en pequeño y crece con tu portfolio</h2>
+        <p class="section-sub">Cada planta y cada sistema de datos es distinto, así que cada proyecto se presupuesta según el número de plantas, MWp y fuentes de datos.</p>
+        <div class="grid grid-3 packages">
+          <article class="package">
+            <h3>Diagnóstico de rendimiento</h3>
+            <p class="pkg-type">Evaluación puntual</p>
+            <ul>
+              <li>Revisión de calidad de datos y sensores</li>
+              <li>Línea base de PR, disponibilidad y rendimiento específico</li>
+              <li>Desglose de pérdidas en MWh y AUD</li>
+              <li>Lista priorizada de acciones recomendadas</li>
+            </ul>
+            <p class="pkg-price">Presupuesto cerrado</p>
+            <a href="#contact" class="btn btn-ghost">Pedir presupuesto</a>
+          </article>
+          <article class="package featured">
+            <span class="badge">El más solicitado</span>
+            <h3>Dashboards y reportes</h3>
+            <p class="pkg-type">Implantación + suscripción mensual</p>
+            <ul>
+              <li>Pipeline de datos desde SCADA / dataloggers</li>
+              <li>Dashboards desde portfolio hasta inversor</li>
+              <li>Cálculo automático de PR y disponibilidad</li>
+              <li>Informes mensuales automáticos para propietario / O&amp;M</li>
+            </ul>
+            <p class="pkg-price">Implantación + cuota mensual por planta</p>
+            <a href="#contact" class="btn">Pedir presupuesto</a>
+          </article>
+          <article class="package">
+            <h3>Analítica IA gestionada</h3>
+            <p class="pkg-type">Servicio gestionado continuo</p>
+            <ul>
+              <li>Todo lo incluido en Dashboards y reportes</li>
+              <li>Detección de fallos y anomalías con IA y alertas</li>
+              <li>Optimización de suciedad, degradación y limpieza</li>
+              <li>Pronóstico de generación y apps a medida</li>
+            </ul>
+            <p class="pkg-price">Mensual, adaptado al portfolio</p>
+            <a href="#contact" class="btn btn-ghost">Pedir presupuesto</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">Nosotros</p>
+          <h2 class="section-title">Creado por quienes calculan el PR a diario</h2>
+        </div>
+        <div class="about-text">
+          <p>Solar AI Analytics fue fundada por un analista de datos de rendimiento solar que trabaja en el sector de la construcción de plantas solares, donde calcular el performance ratio, construir dashboards y explicar el bajo rendimiento a los equipos de proyecto es el trabajo de cada día.</p>
+          <p>Vimos los mismos problemas proyecto tras proyecto: datos repartidos entre portales y hojas de cálculo, un PR calculado de forma distinta por cada parte y pérdidas descubiertas semanas tarde. Solar AI Analytics existe para resolverlo con métodos claros, pipelines de datos fiables y herramientas que la gente realmente usa.</p>
+          <ul class="hero-points">
+            <li>Métodos de cálculo transparentes y documentados</li>
+            <li>Independientes de fabricantes y plataformas de monitorización</li>
+            <li>Enfoque práctico: cada hallazgo expresado en MWh y AUD</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="section cta">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">Revisemos los datos de tu planta</h2>
+          <p class="section-sub">Cuéntanos sobre tu planta o portfolio. Te responderemos con una visión honesta de lo que pueden mostrar tus datos y de lo que haría falta para conseguirlo.</p>
+          <p class="contact-direct">O escríbenos directamente: <a href="mailto:hello@solarai.app">hello@solarai.app</a></p>
+        </div>
+        <form id="contact-form" class="calc-card">
+          <label>Nombre<input type="text" name="name" required autocomplete="name"></label>
+          <label>Email<input type="email" name="email" required autocomplete="email"></label>
+          <label>Empresa<input type="text" name="company" autocomplete="organization"></label>
+          <label>Tamaño del portfolio
+            <select name="size">
+              <option>Menos de 5 MWp</option>
+              <option>5 – 50 MWp</option>
+              <option>50 – 200 MWp</option>
+              <option>Más de 200 MWp</option>
+            </select>
+          </label>
+          <label>¿Qué necesitas?<textarea name="message" rows="4"></textarea></label>
+          <button type="submit" class="btn">Enviar consulta</button>
+          <p class="calc-msg" id="contact-msg"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand"><img src="../assets/favicon.svg" alt="" width="24" height="24"><span>Solar <strong>AI</strong> Analytics</span></div>
+      <p><a href="mailto:hello@solarai.app">hello@solarai.app</a></p>
+      <p>© <span id="year"></span> Solar AI Analytics</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
