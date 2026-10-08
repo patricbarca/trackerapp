@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solar AI Analytics — Inteligencia de rendimiento para plantas solares</title>
-  <meta name="description" content="Solar AI Analytics desarrolla dashboards de rendimiento, análisis de performance ratio (PR) y aplicaciones a medida para plantas solares en Australia.">
+  <meta name="description" content="Solar AI Analytics desarrolla dashboards de rendimiento, análisis de performance ratio (PR) y aplicaciones a medida, agentes de IA y alertas automáticas para plantas solares en Australia.">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +24,7 @@
       </button>
       <nav id="nav-links" class="nav-links">
         <a href="#services">Servicios</a>
+        <a href="#agents">Agentes IA</a>
         <a href="#demo">Demo</a>
         <a href="#calculator">Calculadora PR</a>
         <a href="#packages">Paquetes</a>
@@ -54,6 +55,7 @@
             <li>Métodos de PR y disponibilidad alineados con IEC 61724-1</li>
             <li>Compatible con tu SCADA, dataloggers y portales de monitorización actuales</li>
             <li>Pensado para el NEM y el WEM: curtailment, precios negativos, clipping</li>
+            <li>Alertas e informes por WhatsApp, SMS, email o Teams</li>
           </ul>
         </div>
         <div class="hero-card" aria-hidden="true">
@@ -104,6 +106,31 @@
           <article class="service"><div class="icon">🛠️</div><h3>Ingeniería de datos</h3><p>Pipelines que integran datos de SCADA, dataloggers y estaciones meteorológicas, los limpian y los guardan en una única base de datos fiable.</p></article>
           <article class="service"><div class="icon">📱</div><h3>Apps y herramientas a medida</h3><p>Apps de campo para técnicos de O&amp;M, mapas de trackers y bloques, enlaces a órdenes de trabajo y cualquier herramienta interna que necesite tu equipo.</p></article>
           <article class="service"><div class="icon">🎓</div><h3>Formación y consultoría</h3><p>Ayudamos a tu equipo a adoptar definiciones de KPI coherentes y a sacar el máximo partido a las herramientas que construimos.</p></article>
+          <article class="service"><div class="icon">🏢</div><h3>Monitorización de tejados C&amp;I y flotas</h3><p>Una sola vista para inversores de distintas marcas, pensada para empresas e instaladores, usando las APIs de monitorización de los fabricantes cuando existen, con alertas e informes mensuales con tu marca.</p></article>
+          <article class="service"><div class="icon">⚡</div><h3>Análisis de curtailment y pérdidas de mercado</h3><p>Separamos el curtailment de red, los límites de exportación y los periodos de precios negativos de los fallos reales, para que cada MWh perdido tenga causa y responsable.</p></article>
+          <article class="service"><div class="icon">🌱</div><h3>Datos de emisiones y sostenibilidad</h3><p>Generación, autoconsumo y emisiones evitadas, listos para informes de sostenibilidad y de dirección.</p></article>
+        </div>
+
+        <!-- AGENTES IA -->
+        <div id="agents" class="subsection">
+          <p class="eyebrow">Agentes de IA y automatización</p>
+          <h2 class="section-title">De la alarma a la reparación, sin perseguir a nadie</h2>
+          <p class="section-sub">Agentes de IA que vigilan tus datos las 24 horas, deciden qué es importante y hacen llegar la información correcta a la persona adecuada. Leen datos y avisan a personas; nunca controlan los equipos de la planta.</p>
+          <ol class="flow">
+            <li><span>1</span>Entrada de datos<small>SCADA, dataloggers, portales de inversores, clima</small></li>
+            <li><span>2</span>La IA detecta<small>Real vs esperado, por inversor y string</small></li>
+            <li><span>3</span>El agente prioriza<small>Agrupa alarmas, filtra ruido, sugiere la causa</small></li>
+            <li><span>4</span>Aviso al equipo<small>WhatsApp, SMS, email o Teams, con impacto en AUD</small></li>
+            <li><span>5</span>Cierre<small>Orden de trabajo, fotos e informe de cierre</small></li>
+          </ol>
+          <div class="grid grid-3">
+            <article class="service"><div class="icon">🔔</div><h3>Alertas inteligentes</h3><p>Avisos solo cuando importa, por WhatsApp, SMS, email o Teams, cada uno con producción esperada vs real y el coste estimado de esperar.</p></article>
+            <article class="service"><div class="icon">🧠</div><h3>Agente de priorización de alarmas</h3><p>Agrupa y ordena cientos de alarmas de SCADA e inversores, filtra el ruido conocido (noche, cortes de comunicación, curtailment) y sugiere la causa probable.</p></article>
+            <article class="service"><div class="icon">🗂️</div><h3>Órdenes de trabajo automáticas</h3><p>De la alarma al ticket y al técnico de forma automática, con fotos y notas desde campo y un informe de cierre generado para el cliente.</p></article>
+            <article class="service"><div class="icon">💬</div><h3>Asistente para técnicos</h3><p>Los técnicos preguntan por códigos de error y procedimientos y reciben respuestas basadas en tus manuales, procedimientos de O&amp;M e historial de la planta, citando la fuente.</p></article>
+            <article class="service"><div class="icon">📎</div><h3>Expedientes de garantía</h3><p>Reúne los datos, la cronología del evento y las fotos necesarias para reclamaciones de garantía de inversores y módulos, listos para enviar al fabricante.</p></article>
+            <article class="service"><div class="icon">📲</div><h3>Asistente de informes para propietarios</h3><p>Propietarios y responsables de planta preguntan «¿cuánto generamos y ahorramos este mes?» por WhatsApp o email y reciben la respuesta al momento.</p></article>
+          </div>
         </div>
       </div>
     </section>
@@ -201,10 +228,11 @@
 
     <!-- A QUIÉN -->
     <section class="section who">
-      <div class="container grid grid-3">
+      <div class="container grid grid-4">
         <div class="audience"><h3>Propietarios e inversores</h3><p>Visibilidad del portfolio completo: producción, pérdidas e ingresos frente al presupuesto.</p></div>
         <div class="audience"><h3>Contratistas EPC</h3><p>Analítica de comisionado, tests de garantía de PR y seguimiento durante el periodo de garantía.</p></div>
         <div class="audience"><h3>Empresas de O&amp;M</h3><p>Listas de fallos priorizadas, calendarios de limpieza e informes automáticos para clientes.</p></div>
+        <div class="audience"><h3>Empresas C&amp;I e instaladores</h3><p>Monitorización de flotas de tejados, alertas por WhatsApp e informes mensuales con tu marca para cada instalación.</p></div>
       </div>
     </section>
 
@@ -246,6 +274,7 @@
             <ul>
               <li>Todo lo incluido en Dashboards y reportes</li>
               <li>Detección de fallos y anomalías con IA y alertas</li>
+              <li>Agentes de IA: priorización de alarmas, órdenes de trabajo y alertas por WhatsApp</li>
               <li>Optimización de suciedad, degradación y limpieza</li>
               <li>Pronóstico de generación y apps a medida</li>
             </ul>
@@ -253,6 +282,7 @@
             <a href="#contact" class="btn btn-ghost">Pedir presupuesto</a>
           </article>
         </div>
+        <p class="pkg-note">¿Gestionas una flota de tejados C&amp;I o instalas para empresas? Pregunta por los planes de monitorización por instalación, con alertas e informes mensuales.</p>
       </div>
     </section>
 
@@ -289,7 +319,8 @@
           <label>Empresa<input type="text" name="company" autocomplete="organization"></label>
           <label>Tamaño del portfolio
             <select name="size">
-              <option>Menos de 5 MWp</option>
+              <option>Tejado(s) C&amp;I de menos de 1 MWp</option>
+              <option>1 – 5 MWp</option>
               <option>5 – 50 MWp</option>
               <option>50 – 200 MWp</option>
               <option>Más de 200 MWp</option>

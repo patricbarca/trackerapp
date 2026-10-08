@@ -5,7 +5,7 @@ Marketing website for **Solar AI Analytics** — performance dashboards, perform
 ## Structure
 
 ```
-index.html        English single-page site (hero, services, demo, PR calculator, process, packages, about, contact)
+index.html        English single-page site (hero, services, AI agents & automation, demo, PR calculator, process, packages, about, contact)
 es/index.html     Spanish version (same CSS/JS; language detected from <html lang>)
 css/styles.css    Styles (responsive, no framework)
 js/main.js        Mobile nav, demo PR chart (synthetic data), PR calculator, contact form
